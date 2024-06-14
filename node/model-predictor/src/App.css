@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('background.jpg') no-repeat center center fixed; 
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+
+.prediction-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  transform: translateZ(0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+form {
+  width: 100%; /* Match the width of the form to the container */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input[type="text"] {
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 2px solid #ccd1d9;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 15px;
+  background-color: #3949AB;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  background-color: #303F9F;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #EBF4FF;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Pseudo-elements for the 3D shadow effect */
+.prediction-container::before,
+.prediction-container::after {
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.prediction-container::before {
+  width: calc(100% - 30px); 
+  height: 20px;
+  bottom: -10px;
+  left: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transform: rotateX(-15deg);
+}
+
+.prediction-container::after {
+  width: 20px;
+  height: calc(100% - 30px);
+  right: -10px;
+  top: 15px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transform: rotateY(15deg);
+}
+
+/* Hover effect to lift the container */
+.prediction-container:hover {
+  transform: translateY(-20px) scale(1.05);
+}
+
+.prediction-container:hover::before {
+  bottom: -15px;
+}
+
+.prediction-container:hover::after {
+  right: -15px;
+}
